@@ -22,11 +22,11 @@ public class GAMMojoWriter extends ModelMojoWriter<GAMModel, GAMModel.GAMParamet
     boolean imputeMeans = model._parms.missingValuesHandling().equals(GLMModel.GLMParameters.MissingValuesHandling.MeanImputation);
     writekv("mean_imputation", imputeMeans);
     if (imputeMeans) {
-      writekv("num_means", model._output._dinfo.numNAFill());
-      writekv("cat_modes", model._output._dinfo.catNAFill());
+      writekv("numNAFills", model._output._dinfo.numNAFill());
+      writekv("catNAFills", model._output._dinfo.catNAFill());
     }
     
-    writekv("beta", model._output._model_beta);
+    writekv("beta", model._output._model_beta); // 
     writekv("family", model._parms._family);
     writekv("link", model._parms._link);
     
