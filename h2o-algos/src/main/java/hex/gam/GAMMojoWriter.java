@@ -33,9 +33,10 @@ public class GAMMojoWriter extends ModelMojoWriter<GAMModel, GAMModel.GAMParamet
     if (model._parms._family.equals(GLMModel.GLMParameters.Family.tweedie))
       writekv("tweedie_link_power", model._parms._tweedie_link_power);
     // add GAM specific parameters
-    writekv("_num_knots", model._parms._num_knots);
-    writekv("_gam_columns", model._parms._gam_columns);
-    writekv("bs", model._parms._bs);
+    writekv("_num_knots", model._parms._num_knots); // an array
+    writekv("_gam_columns", model._parms._gam_columns); // an array
+    writekv("bs", model._parms._bs);  // an array of choice of spline functions
+    
     // store variable importance information
   }
 }
